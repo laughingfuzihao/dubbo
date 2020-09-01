@@ -1,0 +1,16 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: dubbo-spring-boot-consumer
+
+dubbo:
+  application:
+    name: dubbo-spring-boot-consumer
+  registry:
+    protocol: zookeeper
+    address: 49.232.61.212:2181
+  protocol:
+    name: dubbo
+    port: 20880

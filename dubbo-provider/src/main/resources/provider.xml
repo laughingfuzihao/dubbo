@@ -15,8 +15,16 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <!--暴露provider的UserService接口-->
-    <dubbo:service interface="com.laughing.dubbo.service.UserService" ref="UserServiceImpl"/>
+    <dubbo:service interface="com.laughing.dubbo.service.UserService"
+                   ref="UserServiceImpl"
+                   version="1.0.0"
+                   loadbalance="roundrobin"/>
 
     <!-- 和本地bean一样实现服务   服务实现暴露UserServiceImpl实现指向-->
     <bean id="UserServiceImpl" class="com.laughing.dubbo.provider.service.UserServiceImpl"/>
+
+    <!--版本2.0.0-->
+    <dubbo:service interface="com.laughing.dubbo.service.UserService" ref="UserServiceImpl2" version="2.0.0"/>
+    <bean id="UserServiceImpl2" class="com.laughing.dubbo.provider.service.UserServiceImpl2"/>
+
 </beans>

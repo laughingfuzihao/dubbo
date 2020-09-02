@@ -18,6 +18,15 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Override
     public List<UserDao> getUserDao(int id) {
+        // TODO 休眠4s
+/*
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+*/
+
         UserDao userDao = new UserDao();
         List<UserDao> userDaoList = new ArrayList<>();
         userDao.setId(id);
@@ -25,6 +34,7 @@ public class UserServiceImpl implements UserService {
         userDao.setAddress("Beijing");
         userDao.setAge(1);
         userDaoList.add(userDao);
+        System.out.println("UserService 远程调用 version1");
         return userDaoList;
     }
 }

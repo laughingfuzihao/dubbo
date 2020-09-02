@@ -11,8 +11,17 @@
     <!-- registry配置  zookeeper -->
     <dubbo:registry address="zookeeper://49.232.61.212:2181"/>
 
+
+    <dubbo:consumer check="false" timeout="3000" retries="3"></dubbo:consumer>
+
     <!--声明调用远程接口，生成远程服务代理-->
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="UserService" interface="com.laughing.dubbo.service.UserService"/>
+    <dubbo:reference id="UserService"
+                     interface="com.laughing.dubbo.service.UserService"
+                     check="false"
+                     timeout="3000"
+                     retries="3"
+                     version="1.0.0"
+                     stub="com.laughing.dubbo.consumer.service.UserServiceStub"/>
 
 </beans>
